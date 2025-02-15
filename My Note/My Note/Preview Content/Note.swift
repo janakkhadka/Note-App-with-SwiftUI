@@ -6,17 +6,19 @@
 //
 
 import Foundation
+import SwiftData
 
+@Model
 final class Note: Identifiable {
     var id = UUID()
     var title: String
-    var description: String
+    var content: String
     var createdAt: Date
     
     init(id: UUID = UUID(), title: String, description: String, createdAt: Date) {
         self.id = id
         self.title = title
-        self.description = description
+        self.content = description
         self.createdAt = createdAt
     }
 }

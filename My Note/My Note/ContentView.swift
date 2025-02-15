@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     @State private var notes = Note.emptyList
+    @State private var isShowingSheet = false
+    
+    @Query(sort: \Note.title) var swiftDataNotes: [Note]
     
     var body: some View {
         GeometryReader { geometry in  //GeometryReader le chai parent view vannale yaa chai Content view ko size and position reads garera adjust garna help garxa
@@ -29,7 +33,6 @@ struct ContentView: View {
                                         Text("JK")
                                             .font(.custom("Zapfino", size: 35))
                                             .fontWeight(.bold)
-                                        //.padding(.bottom, 1)
                                         Text("Welcome to JK Notes")
                                             .font(.system(size: 24, weight: .bold))
                                     }
@@ -39,21 +42,27 @@ struct ContentView: View {
                             
                         )
                     //yedi kunai notes xaina vane
-                    if(notes.isEmpty){
+                    if(swiftDataNotes.isEmpty){
                         NoteRowEmpty()
                             .offset(y: 100)
                     }
                     
-                    ForEach(notes){ note in //notes vako jatilai NoteRow maa dipslay garako ho
+                    ForEach(swiftDataNotes) { note in //notes vako jatilai NoteRow maa dipslay garako ho
                         NoteRow(note: note)
                     }
                 }
+            }
+            .sheet(isPresented: $isShowingSheet){
+                NoteSheet()
+                    .presentationDetents([
+                        .fraction(0.7),.large
+                    ])
             }
             .background(Color.gray.opacity(0.2))
             .overlay(
                 HStack {
                     //Spacer()  //spacer le chai button lai rightmost maa lagxa, hstack vako le
-                    Button(action: {}){
+                    Button(action: {isShowingSheet = true}){
                         Image(
                             systemName: "plus"
                         )
@@ -64,7 +73,7 @@ struct ContentView: View {
                         .shadow(color: Color(red: 58/255,green: 127/255, blue: 147/255), radius: 10)
                     }
                 }.padding(),
-                alignment: .bottomTrailing //bottom trailing vayesi mathi spacer chaidaina, trailing le last maa lagera rakhdinxa
+                alignment: .bottomTrailing //bottom trailing vayesi mathi spacer chaidaina
             )
 
         }

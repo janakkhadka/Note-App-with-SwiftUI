@@ -29,7 +29,7 @@ struct NoteRow: View {
                         y: 0)
             }
             .padding()
-            Text(note.description)
+            Text(note.content)
                 .font(.body)
                 .lineLimit(1) //text badi huda arko line maa najaos vanera
                 //.truncationMode(.tail) //default tail nai hunxa, yesle chai kaa bata word lai katna suru garne vanne ho

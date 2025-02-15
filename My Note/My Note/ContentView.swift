@@ -37,8 +37,8 @@ struct ContentView: View {
                                 .padding()
                                 .foregroundColor(.white)
                             
-                            
                         )
+                    //yedi kunai notes xaina vane
                     if(notes.isEmpty){
                         NoteRowEmpty()
                             .offset(y: 100)
@@ -50,6 +50,22 @@ struct ContentView: View {
                 }
             }
             .background(Color.gray.opacity(0.2))
+            .overlay(
+                HStack {
+                    //Spacer()  //spacer le chai button lai rightmost maa lagxa, hstack vako le
+                    Button(action: {}){
+                        Image(
+                            systemName: "plus"
+                        )
+                        .padding()
+                        .background(Color(red: 58/255,green: 127/255, blue: 147/255))
+                        .foregroundColor(Color.white)
+                        .clipShape(Circle())
+                        .shadow(color: Color(red: 58/255,green: 127/255, blue: 147/255), radius: 10)
+                    }
+                }.padding(),
+                alignment: .bottomTrailing //bottom trailing vayesi mathi spacer chaidaina, trailing le last maa lagera rakhdinxa
+            )
 
         }
         .edgesIgnoringSafeArea(.top)

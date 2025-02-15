@@ -9,8 +9,10 @@ import SwiftUI
 
 struct NoteRow: View {
     let note: Note
+    
     var body: some View {
-        VStack {
+        
+        VStack(alignment: .leading) {
             HStack{
                 Text(note.title)
                 Spacer()
@@ -45,5 +47,5 @@ struct NoteRow: View {
 }
 
 #Preview {
-    NoteRow(note: Note(title: "Today Note", description: "Today I am going to learn SwiftUI. SwiftUI basic layouts are Text, Image, VStack, HStack", createdAt: Date()))
+    NoteRow(note: Note(title: "Today Note", description: "Today I am going ", createdAt: Date()))
 }

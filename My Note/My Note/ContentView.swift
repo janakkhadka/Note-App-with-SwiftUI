@@ -11,6 +11,7 @@ import SwiftData
 struct ContentView: View {
     @State private var notes = Note.emptyList
     @State private var isShowingSheet = false
+    @State private var selectedNote: Note = Note(title: "", description: "")
     
     @Query(sort: \Note.title) var swiftDataNotes: [Note]
     
@@ -49,11 +50,16 @@ struct ContentView: View {
                     
                     ForEach(swiftDataNotes) { note in //notes vako jatilai NoteRow maa dipslay garako ho
                         NoteRow(note: note)
+                            .onTapGesture {
+                                print("note tapped")
+                                selectedNote = note
+                                isShowingSheet = true
+                            }
                     }
                 }
             }
             .sheet(isPresented: $isShowingSheet){
-                NoteSheet()
+                NoteSheet(note: selectedNote)
                     .presentationDetents([
                         .fraction(0.7),.large
                     ])

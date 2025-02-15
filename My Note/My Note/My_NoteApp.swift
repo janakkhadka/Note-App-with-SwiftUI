@@ -10,10 +10,20 @@ import SwiftData
 
 @main
 struct My_NoteApp: App {
+    let container: ModelContainer
+    
+    init() {
+        do{
+            container = try ModelContainer(for: Note.self)
+        }
+        catch {
+            fatalError("cant initialize the model container")
+        }
+    }
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: Note.self)
+        .modelContainer(container)
     }
 }

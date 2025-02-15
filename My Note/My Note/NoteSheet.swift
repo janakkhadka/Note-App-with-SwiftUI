@@ -19,16 +19,18 @@ extension View {
 }
 
 struct NoteSheet: View {
-    @State private var title: String = ""
-    @State private var description: String = ""
+//    @State private var title: String = ""
+//    @State private var description: String = ""
+    @Bindable var note: Note
     @FocusState private var isDescriptionFocused: Bool
     
-    @Environment(\.modelContext) var context
+    @Environment(\.modelContext) private var context
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationStack {
             VStack {
-                TextField("Title", text: $title)
+                TextField("Title", text: $note.title)
                     .font(.headline)
                     .padding()
                 
@@ -36,7 +38,7 @@ struct NoteSheet: View {
                     .padding()
                 
                 ZStack(alignment: .topLeading) { //zstack le chai z axis maa kaam garxa
-                    TextEditor(text: $description) //texteditor le placeholder support gardaina tei vara placeholder jasto banako
+                    TextEditor(text: $note.content) //texteditor le placeholder support gardaina tei vara placeholder jasto banako
                         .focused($isDescriptionFocused)
                         .padding(.horizontal)
                     
@@ -44,12 +46,14 @@ struct NoteSheet: View {
                         .fontWeight(.bold)
                         .foregroundColor(.black.opacity(0.25))
                         .padding(.horizontal)
-                        .hidden(isDescriptionFocused)
+                        .hidden(isDescriptionFocused || !$note.wrappedValue.content.isEmpty)
                 }
             }
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
-                    Button("Cancel"){}
+                    Button(action: {dismiss()}){
+                        Text("Cancel")
+                    }
                         .frame(width: 100, height: 40)
                         .foregroundColor(Color.white)
                         .background(Color.red)
@@ -63,9 +67,10 @@ struct NoteSheet: View {
                 }
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Button(action:{
-                        context.insert(
-                            Note(title: title, description: description, createdAt: Date.now)
-                        )
+                        if(!$note.title.wrappedValue.isEmpty && !$note.content.wrappedValue.isEmpty){
+                            context.insert(note)
+                            dismiss()
+                        }
                     }){
                         Text("Save")
                     }
@@ -88,5 +93,5 @@ struct NoteSheet: View {
 }
 
 #Preview {
-    NoteSheet()
+    NoteSheet(note: Note(title: "hello", description: "hello", createdAt: Date.now))
 }

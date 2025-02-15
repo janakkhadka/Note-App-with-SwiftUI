@@ -15,6 +15,7 @@ struct NoteRow: View {
         VStack(alignment: .leading) {
             HStack{
                 Text(note.title)
+                    .font(.title)
                 Spacer()
                 Image(systemName:
                         "note.text")

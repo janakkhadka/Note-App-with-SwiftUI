@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var isShowingSheet = false
     @State private var selectedNote: Note = Note(title: "", description: "")
     
-    @Query(sort: \Note.createdAt) private var swiftDataNotes: [Note] // yo chai database maa all data retrieve garera according to date sort garna lai ho
+    @Query(sort: \Note.createdAt, order: .reverse) private var swiftDataNotes: [Note] // yo chai database maa all data retrieve garera according to date sort garna lai ho
     @Environment(\.modelContext) private var context
     
     var body: some View {
@@ -77,7 +77,10 @@ struct ContentView: View {
             .overlay(
                 HStack {
                     //Spacer()  //spacer le chai button lai rightmost maa lagxa, hstack vako le
-                    Button(action: {isShowingSheet = true}){
+                    Button(action: {
+                        selectedNote = Note(title: "", description: "")
+                        isShowingSheet = true
+                    }){
                         Image(
                             systemName: "plus"
                         )

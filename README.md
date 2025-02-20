@@ -58,3 +58,7 @@ For any inquiries, reach out via janakkhadka08@gmail.com.
 
 If you find this project useful or interesting, please consider giving it a **star** on GitHub! Your support helps motivate further development and improvements.
 
+[![Star this repo](https://img.shields.io/github/stars/janakkhadka/Note-App-with-SwiftUI?style=social)](https://github.com/janakkhadka/Note-App-with-SwiftUI/stargazers)
+
+Click the button above or simply go to the repository and click the **Star** button at the top right. Thank you! 🚀
+

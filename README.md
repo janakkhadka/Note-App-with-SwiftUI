@@ -1,6 +1,5 @@
+
 # Note-App-with-SwiftUI
-Creating a simple notes app with SwiftUI. After revising Swift with official documentation, now wants to go directly with SwiftUI by building simple notes app.
-# iOS Note App
 
 An intuitive and minimalistic note-taking app built with **Swift** and **SwiftUI**. This app leverages **SwiftData** for data persistence and supports full CRUD (Create, Read, Update, Delete) functionality.
 

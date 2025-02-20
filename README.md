@@ -16,14 +16,18 @@ An intuitive and minimalistic note-taking app built with **Swift** and **SwiftUI
 
 ![Screenshot 1](images/main.png)  
 
-![Screenshot 2](images/1.png)  
+
 *Landing view*
+![Screenshot 2](images/1.png)  
 
-![Screenshot 2](images/2.png)  
+
 *Update Note*
+![Screenshot 2](images/2.png)  
 
-![Screenshot 2](images/3.png)  
+
 *Add new Note*
+![Screenshot 2](images/3.png)  
+
 
 ## Technologies Used
 

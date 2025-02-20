@@ -13,7 +13,11 @@ An intuitive and minimalistic note-taking app built with **Swift** and **SwiftUI
 
 ## Screenshots
 
-(Include relevant screenshots of the app here)
+
+![Screenshot 1](images/main.png)  
+
+![Screenshot 2](images.png)  
+*Note List with Dynamic Card Height*
 
 ## Technologies Used
 
@@ -25,7 +29,7 @@ An intuitive and minimalistic note-taking app built with **Swift** and **SwiftUI
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/ios-note-app.git
+   git clone https://github.com/janakkhadka/Note-App-with-SwiftUI
    ```
 2. Open the project in Xcode.
 3. Build and run on a simulator or a physical device.
@@ -34,11 +38,13 @@ An intuitive and minimalistic note-taking app built with **Swift** and **SwiftUI
 
 Pull requests are welcome. For significant changes, please open an issue first to discuss what you’d like to change.
 
-## License
-
-(Include license details if applicable)
 
 ## Contact
 
-For any inquiries, reach out via [your email or GitHub profile].
+For any inquiries, reach out via janakkhadka08@gmail.com.
+
+
+## 🌟 Star the Project
+
+If you find this project useful or interesting, please consider giving it a **star** on GitHub! Your support helps motivate further development and improvements.
 
